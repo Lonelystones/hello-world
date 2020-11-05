@@ -1,7 +1,7 @@
 #### 初始化git本地仓库
 `git init`
 
-#### 修改文件时间属性到最新
+#### 修改文件时间属性到最新，文件不存在则会被新建
 `touch filename.suffix`
 
 #### 查看可用配置列表
@@ -44,11 +44,11 @@
 ###### 添加新文件(new)、和被修改的(modified)文件，不包括被删除的(deleted、)文件，`.`表示当前文件夹
 `git add .`
 
-###### 添加被修改的(modified)和被删除的(deleted)文件，不包括新文件，`.`表示当前文件夹
-`git add -u .`
+###### 添加被修改的(modified)和被删除的(deleted)文件，不包括新文件
+`git add -u`
 
-###### 添加所有变化的文件，`.`表示当前文件夹
-`git add -A .`
+###### 添加所有变化的文件
+`git add -A`
 
 #### 提交更改
 ###### 提交暂存区中的文件到版本库并添加备注
@@ -70,3 +70,13 @@
 `git push`
 ###### 如果当前分支与多个主机存在“追踪关系”，则可以使用-u推送并指定一个默认主机，这样以后推送到相同主机的相同分支就可以不加任何参数使用`git push`
 `git push -u origin master`
+
+#### 暂存区相关操作
+###### 查看暂存区中的文件
+`git ls-files`
+###### 删除暂存区中的指定文件
+`git rm --cached filename1.suffix filename2.suffix`
+###### 同时删除暂存区和工作区中的指定文件
+`git rm filename1.suffix filename2.suffix`
+###### 清空暂存区
+`rm .git/index`
